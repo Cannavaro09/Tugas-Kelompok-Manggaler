@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Sukses</title>
+
+<style>
+body {
+    font-family:Arial;
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f4f4f4;
+}
+
+.box {
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+}
+
+h1 { color:green; }
+
+button {
+    margin-top:20px;
+    padding:10px;
+    width:100%;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>✅ Pembayaran Berhasil</h1>
+    <p>Total: Rp <span id="total"></span></p>
+    <p>Metode: <span id="metode"></span></p>
+
+    <button onclick="kembali()">Kembali</button>
+</div>
+
+<script>
+document.getElementById("total").innerText = localStorage.getItem("totalBayar");
+document.getElementById("metode").innerText = localStorage.getItem("metodeBayar");
+
+function kembali(){
+    localStorage.clear();
+    window.location.href = "menu.html";
+}
+</script>
+
+</body>
+</html>

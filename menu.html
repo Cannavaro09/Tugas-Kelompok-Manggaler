@@ -1,0 +1,97 @@
+<!DOCTYPE html>	
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Menu</title>
+
+<style>
+body { font-family:Arial; margin:0; }
+
+.header {
+    background:red;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.container { padding:20px; }
+
+.menu-item {
+    display:flex;
+    justify-content:space-between;
+    background:#f4f4f4;
+    margin:10px 0;
+    padding:15px;
+    border-radius:10px;
+}
+
+button {
+    background:red;
+    color:white;
+    border:none;
+    padding:8px;
+    border-radius:5px;
+}
+
+.checkout {
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:black;
+    color:white;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">PILIH MENU </div>
+
+<div class="container">
+    <div class="menu-item">
+        <span>Mie Iblis (Rp 12000)</span>
+        <button onclick="tambah(12000)">+</button>
+    </div>
+
+    <div class="menu-item">
+        <span>Mie Setan (Rp 13000)</span>
+        <button onclick="tambah(13000)">+</button>
+    </div>
+
+    <div class="menu-item">
+        <span>Es Genderuwo (Rp 8000)</span>
+        <button onclick="tambah(8000)">+</button>
+    </div>
+	
+	<div class="menu-item">
+        <span>Susu Wewegombel (Rp 10000)</span>
+        <button onclick="tambah(10000)">+</button>
+    </div>
+</div>
+
+<div class="checkout">
+    Total: Rp <span id="total">0</span>
+    <button onclick="lanjut()">Bayar</button>
+</div>
+
+<script>
+let total = 0;
+
+function tambah(harga){
+    total += harga;
+    document.getElementById("total").innerText = total;
+}
+
+function lanjut(){
+    if(total === 0){
+        alert("Pilih dulu!");
+    } else {
+        localStorage.setItem("totalBayar", total);
+        window.location.href = "bayar.html";
+    }
+}
+</script>
+
+</body>
+</html>
